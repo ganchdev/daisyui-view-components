@@ -1,0 +1,24 @@
+<%= component :card do |card| %>
+  <%= card.with_image do %>
+    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Album"/>
+  <% end %>
+  <%= card.with_card_body do |card_body| %>
+    <%= card_body.with_title do %>
+      Shoes!
+      <%= component :badge, class: 'badge-secondary' do %>
+        NEW
+      <% end %>
+    <% end %>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <%= card_body.with_card_actions class: "justify-end" do |actions| %>
+      <div class="my-auto">
+        <%= actions.with_badge do %>
+          $19.99
+        <% end %>
+      </div>
+      <%= actions.with_button class: "btn-primary" do %>
+        Buy now
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<%= component :dropdown do |dropdown| %>
+  <% dropdown.with_trigger "Open" %>
+  <% dropdown.with_menu do |menu| %>
+    <% menu.with_item do %>
+      <a>Item 1</a>
+    <% end %>
+    <% menu.with_item do %>
+      <a>Item 2</a>
+    <% end %>
+  <% end %>
+<% end %>

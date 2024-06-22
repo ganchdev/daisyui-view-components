@@ -1,0 +1,9 @@
+<%= component :collapse do |collapse| %>
+  <% collapse.with_checkbox data: {a: 1}, class: 'sss' %>
+  <% collapse.with_collapse_title do %>
+    Focus me to see content
+  <% end %>
+  <% collapse.with_collapse_content do %>
+    <p>tabindex="0" attribute is necessary to make the div focusable</p>
+  <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= wrapper :div, class: css(collapse_classes) do %>
+  <% if checkbox %>
+    <%= checkbox %>
+  <% elsif radio %>
+    <%= radio %>
+  <% end %>
+  <%= collapse_title %>
+  <%= collapse_content %>
+<% end %>
