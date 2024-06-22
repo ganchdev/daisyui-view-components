@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name          = 'daisyui-view-components'
   s.description   = 'A view component library for Daisy UI'
   s.summary       = s.description
-  s.required_ruby_version = '>= 2.6'
+  s.required_ruby_version = '>= 2.7'
   s.homepage      = 'https://github.com/naft-a/daisyui-view-components'
   s.version       = DaisyUIViewComponents::VERSION
   s.files = Dir[
