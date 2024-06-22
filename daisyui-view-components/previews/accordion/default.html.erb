@@ -1,4 +1,4 @@
-<%= component :accordion do |accordion| %>
+<%= component :accordion, arrow: arrow do |accordion| %>
   <% accordion.with_collapse do |collapse| %>
     <% collapse.with_radio name: "accordion1", data: {a: 1}, class: 'sss' %>
     <% collapse.with_collapse_title do %>

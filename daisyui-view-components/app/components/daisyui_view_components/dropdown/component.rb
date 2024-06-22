@@ -4,7 +4,9 @@ module DaisyUIViewComponents
   module Dropdown
     class Component < DaisyUIViewComponents::BaseComponent
 
-      prop :position
+      POSITIONS = [:end, :top, :bottom, :right, :left].freeze
+
+      option :position, optional: true, type: proc(&:to_s)
 
       renders_one :trigger, 'Trigger'
       renders_one :menu, lambda { |css_classes: 'dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-56'|
@@ -23,9 +25,7 @@ module DaisyUIViewComponents
 
       def css_classes
         classes = %w[dropdown]
-        if @position
-          classes << "dropdown-#{@position}"
-        end
+        classes << "dropdown-#{@position}" if @position
 
         classes.join(' ')
       end

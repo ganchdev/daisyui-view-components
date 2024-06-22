@@ -4,10 +4,9 @@ module DaisyUIViewComponents
   module Button
     class Component < DaisyUIViewComponents::BaseComponent
 
-      prop :url
-      prop :label
-      prop :method
-      prop :options
+      option :url, optional: true, type: proc(&:to_s)
+      option :label, optional: true, type: proc(&:to_sym)
+      option :method, optional: true, type: proc(&:to_sym)
 
       # rubocop:disable Metrics/AbcSize
       # rubocop:disable Metrics/MethodLength

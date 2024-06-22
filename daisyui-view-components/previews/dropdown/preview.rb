@@ -4,8 +4,9 @@ module Dropdown
   # @label Dropdown
   class Preview < ViewComponent::Preview
 
-    def default
-      render_with_template template: 'dropdown/default'
+    # @param position [Symbol] select {{ DaisyUIViewComponents::Dropdown::Component::POSITIONS }} "The position of the menu"
+    def default(position: nil)
+      render_with_template locals: { position: position }, template: 'dropdown/default'
     end
 
   end

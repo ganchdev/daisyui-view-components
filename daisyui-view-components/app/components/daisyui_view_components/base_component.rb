@@ -1,31 +1,18 @@
 # frozen_string_literal: true
 
 require 'view_component'
+require 'dry-initializer'
 
 module DaisyUIViewComponents
   class BaseComponent < ViewComponent::Base
 
-    class << self
-
-      def prop(name)
-        props << name
-      end
-
-      def props
-        @props ||= []
-      end
-
-    end
+    extend Dry::Initializer[undefined: false]
 
     def initialize(text = nil, **opts)
       @_text = text
-      props = opts.extract!(*self.class.props)
-      props.each do |name, value|
-        instance_variable_set(:"@#{name}", value)
-        self.class.send(:attr_reader, name)
-      end
-
       @html_options = opts
+
+      super(**opts)
     end
 
     def content

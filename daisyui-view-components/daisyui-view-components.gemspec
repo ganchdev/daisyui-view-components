@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.licenses      = ['MIT']
   s.add_runtime_dependency 'actionview', '>= 5.0'
   s.add_runtime_dependency 'activesupport', '>= 5.0'
+  s.add_runtime_dependency 'dry-initializer', '~> 3.1'
   s.add_runtime_dependency 'tailwind_merge', '>= 0.8.1'
   s.add_runtime_dependency 'view_component', '>= 3.0'
 end

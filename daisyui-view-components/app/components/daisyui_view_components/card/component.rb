@@ -10,8 +10,6 @@ module DaisyUIViewComponents
 
       class Image < DaisyUIViewComponents::BaseComponent
 
-        prop :position # @return Symbol
-
         def call
           html tag: :figure, **html_options do
             content

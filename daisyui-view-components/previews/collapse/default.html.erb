@@ -1,4 +1,4 @@
-<%= component :collapse do |collapse| %>
+<%= component :collapse, open: open, arrow: arrow do |collapse| %>
   <% collapse.with_checkbox data: {a: 1}, class: 'sss' %>
   <% collapse.with_collapse_title do %>
     Focus me to see content

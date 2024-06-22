@@ -4,8 +4,8 @@ module DaisyUIViewComponents
   module Collapse
     class Component < DaisyUIViewComponents::BaseComponent
 
-      prop :open
-      prop :arrow
+      option :open, default: proc { false }
+      option :arrow, default: proc { false }
 
       renders_one :collapse_title, 'CollapseTitle'
       renders_one :collapse_content, 'CollapseContent'
