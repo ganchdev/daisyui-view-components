@@ -1,0 +1,9 @@
+<%= component :swap, class: 'swap-flip text-9xl' do |swap| %>
+  <%= swap.with_input name: 'item_trigger' %>
+  <%= swap.with_swap_on do %>
+    😈
+  <% end %>
+  <%= swap.with_swap_off do %>
+    😇
+  <% end %>
+<% end %>
