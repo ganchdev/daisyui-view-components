@@ -1,0 +1,14 @@
+<%= component :button, 'Open Modal', onclick: 'my_modal_2.showModal()' %>
+
+<%= component :modal, id: 'my_modal_2', open: open, backdrop: backdrop do |modal| %>
+  <% modal.with_modal_box close_button: close_button do |box| %>
+    <h3 class="text-lg font-bold">Hello 2!</h3>
+    <p class="py-4">2 - Press ESC key or click the button below to close</p>
+    <% box.with_modal_action do |action| %>
+      <%= action.with_close_button class: "btn-sm" %>
+      <%= action.with_button class: "btn-sm" do %>
+        Accept
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
