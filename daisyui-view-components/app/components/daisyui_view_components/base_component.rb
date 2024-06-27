@@ -47,10 +47,15 @@ module DaisyUIViewComponents
     # @param block [Proc] the content to render
     # @return [String] the rendered html
     def html(tag, **opts, &block)
-      options = html_options.merge(opts)
+      attributes = html_options.merge(opts)
       content = capture(&block) if block_given?
 
-      content_tag(tag, content, **options)
+      # Remove all options that are used by the component
+      self.class.dry_initializer.attributes(self).each_key do |key|
+        attributes.delete(key)
+      end
+
+      content_tag(tag, content, **attributes)
     end
 
   end
