@@ -1,6 +1,6 @@
-<%= wrapper :ul, class: css('menu bg-base-200 w-56 rounded-box') do %>
+<%= html :ul, class: css('menu bg-base-200 w-56 rounded-box') do %>
   <% items.each do |item| %>
-    <%= html tag: :li, **item.html_options do %>
+    <%= content_tag :li, **item.html_options do %>
       <%= item %>
     <% end %>
   <% end %>

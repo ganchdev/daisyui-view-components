@@ -11,7 +11,7 @@ module DaisyUIViewComponents
         class CloseButton < DaisyUIViewComponents::BaseComponent
 
           def call
-            html tag: :form, method: 'dialog' do
+            html :form, method: 'dialog' do
               concat content_tag :button, content || 'Close', class: css('btn')
             end
           end

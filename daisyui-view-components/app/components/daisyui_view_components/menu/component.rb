@@ -4,7 +4,7 @@ module DaisyUIViewComponents
   module Menu
     class Component < DaisyUIViewComponents::BaseComponent
 
-      renders_many :items, "Item"
+      renders_many :items, 'Item'
 
       class Item < DaisyUIViewComponents::BaseComponent
 

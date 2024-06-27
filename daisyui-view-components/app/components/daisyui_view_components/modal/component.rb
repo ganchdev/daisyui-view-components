@@ -9,12 +9,6 @@ module DaisyUIViewComponents
 
       renders_one :modal_box, DaisyUIViewComponents::Modal::Box::Component
 
-      def modal_backdrop
-        html tag: :form, **html_options.merge(class: css('modal-backdrop')) do
-          concat content_tag(:button, 'close')
-        end
-      end
-
       private
 
       def css_classes

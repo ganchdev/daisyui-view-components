@@ -37,25 +37,20 @@ module DaisyUIViewComponents
       end
     end
 
-    def html(**opts, &block)
-      content = capture(&block) if block_given?
-      tag = opts.delete(:tag)
-
-      content_tag(tag, content, **opts)
-    end
-
-    # A wrapper for components that renders a
-    # tag with given html attributes and content
+    # Html wrapper for components that render
+    # tags with given html attributes and content.
+    # It makes it easy to pass html options around
+    # without always having to merge them.
     #
     # @param tag [Symbol] the tag to render
     # @param opts [Hash] the html attributes to render
     # @param block [Proc] the content to render
     # @return [String] the rendered html
-    def wrapper(tag, **opts, &block)
-      opts[:tag] = tag
-      wrapper_options = html_options.merge(opts)
+    def html(tag, **opts, &block)
+      options = html_options.merge(opts)
+      content = capture(&block) if block_given?
 
-      html(**wrapper_options, &block)
+      content_tag(tag, content, **options)
     end
 
   end

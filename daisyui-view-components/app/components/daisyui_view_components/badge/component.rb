@@ -5,7 +5,7 @@ module DaisyUIViewComponents
     class Component < DaisyUIViewComponents::BaseComponent
 
       def call
-        html tag: :span, **html_options.merge(class: css('badge')) do
+        html :span,class: css('badge') do
           content
         end
       end

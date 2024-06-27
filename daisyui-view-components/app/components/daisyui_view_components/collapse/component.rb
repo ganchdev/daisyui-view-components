@@ -15,7 +15,7 @@ module DaisyUIViewComponents
       class CollapseRadio < DaisyUIViewComponents::BaseComponent
 
         def call
-          html tag: :input, **html_options.merge(type: :radio, class: css('w-auto h-auto')) do
+          html :input, type: :radio, class: css('w-auto h-auto') do
             content
           end
         end
@@ -25,7 +25,7 @@ module DaisyUIViewComponents
       class CollapseCheckbox < DaisyUIViewComponents::BaseComponent
 
         def call
-          html tag: :input, **html_options.merge(type: :checkbox, class: css('w-auto h-auto')) do
+          html :input, type: :checkbox, class: css('w-auto h-auto') do
             content
           end
         end
@@ -35,7 +35,7 @@ module DaisyUIViewComponents
       class CollapseTitle < DaisyUIViewComponents::BaseComponent
 
         def call
-          html tag: :h2, **html_options.merge(class: css('collapse-title text-xl font-medium')) do
+          html :h2, class: css('collapse-title text-xl font-medium') do
             content
           end
         end
@@ -45,7 +45,7 @@ module DaisyUIViewComponents
       class CollapseContent < DaisyUIViewComponents::BaseComponent
 
         def call
-          html tag: :div, **html_options.merge(class: css('collapse-content')) do
+          html :div, class: css('collapse-content') do
             content
           end
         end

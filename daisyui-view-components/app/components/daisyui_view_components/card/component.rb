@@ -11,7 +11,7 @@ module DaisyUIViewComponents
       class Image < DaisyUIViewComponents::BaseComponent
 
         def call
-          html tag: :figure, **html_options do
+          html :figure do
             content
           end
         end
@@ -24,7 +24,7 @@ module DaisyUIViewComponents
         renders_one :card_actions, 'CardActions'
 
         def call
-          html tag: :div, **html_options.merge(class: css('card-body'))do
+          html :div, class: css('card-body') do
             content
           end
         end
@@ -32,7 +32,7 @@ module DaisyUIViewComponents
         class Title < DaisyUIViewComponents::BaseComponent
 
           def call
-            html tag: :h2, **html_options.merge(class: css('card-title')) do
+            html :h2, class: css('card-title') do
               content
             end
           end
@@ -45,7 +45,7 @@ module DaisyUIViewComponents
           renders_many :badges, DaisyUIViewComponents::Badge::Component
 
           def call
-            html tag: :div, **html_options.merge(class: css('card-actions')) do
+            html :div, class: css('card-actions') do
               content
             end
           end

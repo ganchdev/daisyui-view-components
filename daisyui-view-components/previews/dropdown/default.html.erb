@@ -1,7 +1,7 @@
 <%= component :dropdown, position: position do |dropdown| %>
   <% dropdown.with_trigger "Open" %>
   <% dropdown.with_menu do |menu| %>
-    <% menu.with_item do %>
+    <% menu.with_item data: {a: 1}, class: "test" do %>
       <a>Item 1</a>
     <% end %>
     <% menu.with_item do %>

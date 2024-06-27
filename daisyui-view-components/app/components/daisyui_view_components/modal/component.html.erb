@@ -1,4 +1,8 @@
-<%= wrapper :dialog, class: css(css_classes) do %>
+<%= html :dialog, class: css(css_classes) do %>
   <%= modal_box %>
-  <%= modal_backdrop if @backdrop %>
+  <% if backdrop %>
+    <form class="modal-backdrop">
+      <button>close</button>
+    </form>
+  <% end %>
 <% end %>
