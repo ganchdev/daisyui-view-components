@@ -2,11 +2,16 @@
 
 module DaisyUIViewComponents
   module Card
-
     class Component < DaisyUIViewComponents::BaseComponent
 
       renders_one :image, 'Image'
       renders_one :card_body, 'CardBody'
+
+      def call
+        html :div, class: css('card w-96 bg-base-100 shadow-xl') do
+          content
+        end
+      end
 
       class Image < DaisyUIViewComponents::BaseComponent
 
@@ -55,6 +60,5 @@ module DaisyUIViewComponents
       end
 
     end
-
   end
 end

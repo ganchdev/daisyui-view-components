@@ -8,6 +8,12 @@ module DaisyUIViewComponents
         renders_many :buttons, DaisyUIViewComponents::Button::Component
         renders_one :close_button, 'CloseButton'
 
+        def call
+          html :div , class: css('modal-action') do
+            content
+          end
+        end
+
         class CloseButton < DaisyUIViewComponents::BaseComponent
 
           def call

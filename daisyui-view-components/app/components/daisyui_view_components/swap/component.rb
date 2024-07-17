@@ -8,6 +8,12 @@ module DaisyUIViewComponents
       renders_one :swap_off, 'SwapOff'
       renders_one :input, 'SwapInput'
 
+      def call
+        html :label, class: css('swap') do
+          content
+        end
+      end
+
       class SwapInput < DaisyUIViewComponents::BaseComponent
 
         def call

@@ -8,13 +8,19 @@ module DaisyUIViewComponents
       option :offline, default: proc { false }
       option :placeholder, default: proc { '' }
 
+      def call
+        html :span, class: css_classes do
+          content
+        end
+      end
+
       def css_classes
         classes = ['avatar']
         classes << 'online' if online
         classes << 'offline' if offline
         classes << 'placeholder' if placeholder
 
-        css(classes)
+        css(classes.join(' '))
       end
 
     end

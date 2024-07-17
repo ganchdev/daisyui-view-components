@@ -11,8 +11,16 @@ module DaisyUIViewComponents
         DaisyUIViewComponents::Collapse::Component.new(arrow: arrow)
       }
 
+      def call
+        html :div, class: css_classes do
+          collapses.each do |collapse|
+            concat collapse
+          end
+        end
+      end
+
       def css_classes
-        "flex flex-wrap gap-#{@gap}"
+        css("flex flex-wrap gap-#{@gap}")
       end
 
     end
