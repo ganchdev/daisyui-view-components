@@ -26,6 +26,11 @@ module DaisyUIViewComponents
         @html_options[:class] << original if original
       end
 
+      # Remove all options that are used by the component
+      self.class.dry_initializer.attributes(self).each_key do |key|
+        @html_options.delete(key)
+      end
+
       @html_options.merge(opts)
     end
 
@@ -49,11 +54,6 @@ module DaisyUIViewComponents
     def html(tag, **opts, &block)
       attributes = html_options.merge(opts)
       content = capture(&block) if block_given?
-
-      # Remove all options that are used by the component
-      self.class.dry_initializer.attributes(self).each_key do |key|
-        attributes.delete(key)
-      end
 
       content_tag(tag, content, **attributes)
     end
