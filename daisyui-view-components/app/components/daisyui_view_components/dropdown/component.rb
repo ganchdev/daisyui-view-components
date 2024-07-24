@@ -6,10 +6,10 @@ module DaisyUIViewComponents
 
       POSITIONS = [:end, :top, :bottom, :right, :left].freeze
 
-      option :position, optional: true, type: proc(&:to_s)
+      option :position, optional: true, type: proc(&:to_sym)
 
       renders_one :trigger, 'Trigger'
-      renders_one :menu, lambda { |css: 'dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-56'|
+      renders_one :menu, lambda { |css: 'dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-56'|
         DaisyUIViewComponents::Menu::Component.new(class: css)
       }
 

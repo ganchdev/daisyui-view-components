@@ -1,0 +1,9 @@
+<%= html :div, class: css('navbar') do %>
+  <% if content.present? %>
+    <%= content %>
+  <% else %>
+    <%= start_element %>
+    <%= center_element %>
+    <%= end_element %>
+  <% end %>
+<% end %>

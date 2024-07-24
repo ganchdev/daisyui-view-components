@@ -8,8 +8,17 @@ module DaisyUIViewComponents
 
       class Item < DaisyUIViewComponents::BaseComponent
 
+        option :collapsible, default: proc { false }, optional: true
+        option :open, default: proc { false }, optional: true
+
         def call
-          content
+          if collapsible
+            html :details, open: open do
+              content
+            end
+          else
+            content
+          end
         end
 
       end

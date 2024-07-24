@@ -1,0 +1,75 @@
+<%= component :navbar do |nav| %>
+  <% nav.with_start_element do %>
+    <%= component :dropdown, class: 'lg:hidden' do |dropdown| %>
+      <% dropdown.with_trigger do %>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      <% end %>
+      <% dropdown.with_menu do |menu| %>
+        <% menu.with_item do %>
+          <a>Item 1</a>
+        <% end %>
+        <% menu.with_item do %>
+          <a>Item 2</a>
+        <% end %>
+      <% end %>
+    <% end %>
+    <a class="btn btn-ghost text-xl hidden md:block lg:block">daisyUI</a>
+  <% end %>
+
+  <% nav.with_center_element class: 'hidden lg:flex' do %>
+    <%= component :menu, class: 'menu-horizontal px-1' do |menu| %>
+      <% menu.with_item do %>
+        <a>Item 1</a>
+      <% end %>
+      <% menu.with_item collapsible: true do %>
+        <summary>Parent</summary>
+        <ul class="p-2 bg-base-200 w-40">
+          <li><a>Submenu 1</a></li>
+          <li><a>Submenu 2</a></li>
+        </ul>
+      <% end %>
+      <% menu.with_item do %>
+        <a>Item 3</a>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% nav.with_end_element class: 'gap-2' do %>
+    <div class="form-control">
+      <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+    </div>
+    <%= component :dropdown, position: :end do |dropdown| %>
+      <% dropdown.with_trigger class: 'btn btn-ghost btn-circle' do %>
+        <%= component :avatar do %>
+          <div class="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS Navbar component"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          </div>
+        <% end %>
+      <% end %>
+      <% dropdown.with_menu do |menu| %>
+        <% menu.with_item do %>
+          <a>Profile</a>
+        <% end %>
+        <% menu.with_item do %>
+          <a>Settings</a>
+        <% end %>
+        <% menu.with_item do %>
+          <a>Logout</a>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
