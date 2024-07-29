@@ -1,0 +1,14 @@
+<%= component :steps, responsive: responsive do |steps| %>
+  <%= steps.with_step color: :primary do %>
+    Register
+  <% end %>
+  <%= steps.with_step color: :primary do %>
+    Choose plan
+  <% end %>
+  <%= steps.with_step do %>
+    Purchase
+  <% end %>
+  <%= steps.with_step do %>
+    Receive Product
+  <% end %>
+<% end %>

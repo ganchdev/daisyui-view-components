@@ -28,6 +28,12 @@
   <% end %>
 
   <% nav.with_center_element class: 'hidden lg:flex' do %>
+    <div class="form-control">
+      <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+    </div>
+  <% end %>
+
+  <% nav.with_end_element class: 'gap-2' do %>
     <%= component :menu, class: 'menu-horizontal px-1' do |menu| %>
       <% menu.with_item do %>
         <a>Item 1</a>
@@ -43,12 +49,6 @@
         <a>Item 3</a>
       <% end %>
     <% end %>
-  <% end %>
-
-  <% nav.with_end_element class: 'gap-2' do %>
-    <div class="form-control">
-      <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-    </div>
     <%= component :dropdown, position: :end do |dropdown| %>
       <% dropdown.with_trigger class: 'btn btn-ghost btn-circle' do %>
         <%= component :avatar do %>
