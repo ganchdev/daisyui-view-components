@@ -50,6 +50,7 @@ module DaisyUIViewComponents
             content
           end
         end
+
       end
 
     end

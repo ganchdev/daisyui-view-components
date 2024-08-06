@@ -1,0 +1,19 @@
+<% if label %>
+  <% if form.present? %>
+    <div class="form-control">
+      <%= label_tag field, class: "cursor-pointer label" do %>
+        <%= content_tag :span, label, class: "label-text" %>
+        <%= form.check_box field, class: css(css_classes), **html_options.except(:class) %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="form-control">
+      <%= label_tag field, class: "cursor-pointer label" do %>
+        <%= content_tag :span, label, class: "label-text" %>
+        <%= check_box_tag field, class: css(css_classes), **html_options.except(:class) %>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <%= check_box_tag field, class: css(css_classes), **html_options.except(:class) %>
+<% end %>
