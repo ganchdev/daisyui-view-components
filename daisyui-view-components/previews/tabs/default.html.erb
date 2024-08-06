@@ -1,0 +1,11 @@
+<%= component :tabs, responsive: responsive, boxed: boxed, bordered: bordered, lifted: lifted do |tabs| %>
+  <% tabs.with_tab do %>
+    Tab 1
+  <% end %>
+  <% tabs.with_tab active: true do %>
+    Tab 2
+  <% end %>
+  <% tabs.with_tab disabled: false do %>
+    Tab 3
+  <% end %>
+<% end %>
