@@ -1,0 +1,12 @@
+<%= form_with url: "#" do |f| %>
+  <%= component :file_input, form: f, responsive: responsive, color: color, bordered: bordered, ghost: ghost do |file_input| %>
+    <% file_input.with_top_label do |label| %>
+      <%= label.with_label_text "What is your name?" %>
+      <%= label.with_label_text_alt "Top Right label" %>
+    <% end %>
+    <% file_input.with_bottom_label do |label| %>
+      <%= label.with_label_text_alt "Bottom Left label" %>
+      <%= label.with_label_text_alt "Bottom Right label" %>
+    <% end %>
+  <% end %>
+<% end %>
