@@ -21,13 +21,13 @@ module Checkbox
     # @param color [Symbol] select {{ DaisyUIViewComponents::Checkbox::Component::COLOR_OPTIONS }}
     # @param checked [Boolean] select [false, true] "Checked"
     # @param disabled [Boolean] select [false, true] "Disabled"
-    def with_label(checked: false, disabled: false, responsive: nil, color: nil)
+    def with_form(checked: false, disabled: false, responsive: nil, color: nil)
       render_with_template locals: {
         checked: checked,
         disabled: disabled,
         responsive: responsive,
         color: color
-      }, template: 'checkbox/with_label'
+      }, template: 'checkbox/with_form'
     end
 
   end
