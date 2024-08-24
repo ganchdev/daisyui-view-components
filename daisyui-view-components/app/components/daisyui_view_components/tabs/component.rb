@@ -27,8 +27,8 @@ module DaisyUIViewComponents
 
         def call
           classes = ['tab']
-          classes << " tab-active" if active
-          classes << " tab-disabled" if disabled
+          classes << 'tab-active' if active
+          classes << 'tab-disabled' if disabled
 
           html :a, class: css(classes.join(' ')), role: 'tab' do
             content
@@ -41,10 +41,10 @@ module DaisyUIViewComponents
 
       def css_classes
         classes = ['tabs']
-        classes << " #{RESPONSIVE_CLASSES[responsive]}" if responsive
-        classes << ' tabs-boxed' if boxed
-        classes << ' tabs-bordered' if bordered
-        classes << ' tabs-lifted' if lifted
+        classes << RESPONSIVE_CLASSES[responsive] if responsive
+        classes << 'tabs-boxed' if boxed
+        classes << 'tabs-bordered' if bordered
+        classes << 'tabs-lifted' if lifted
 
         classes.join(' ')
       end

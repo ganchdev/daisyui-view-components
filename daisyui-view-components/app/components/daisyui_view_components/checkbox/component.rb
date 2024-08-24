@@ -37,8 +37,8 @@ module DaisyUIViewComponents
 
       def css_classes
         classes = ['checkbox']
-        classes << " #{RESPONSIVE_CLASSES[responsive]}" if responsive
-        classes << " #{COLOR_CLASSES[color]}" if color
+        classes << RESPONSIVE_CLASSES[responsive] if responsive
+        classes << COLOR_CLASSES[color] if color
 
         classes.join(' ')
       end

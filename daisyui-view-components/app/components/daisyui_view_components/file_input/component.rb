@@ -39,10 +39,10 @@ module DaisyUIViewComponents
 
       def css_classes
         classes = ['file-input']
-        classes << " #{RESPONSIVE_CLASSES[responsive]}" if responsive
-        classes << " #{COLOR_CLASSES[color]}" if color
-        classes << ' file-input-ghost' if ghost
-        classes << ' file-input-bordered' if bordered
+        classes << RESPONSIVE_CLASSES[responsive] if responsive
+        classes << COLOR_CLASSES[color] if color
+        classes << 'file-input-ghost' if ghost
+        classes << 'file-input-bordered' if bordered
 
         classes.join(' ')
       end

@@ -21,7 +21,6 @@ module FileInput
       render_with_template locals: { responsive: responsive, color: color, bordered: bordered, ghost: ghost }, template: 'file_input/with_form'
     end
 
-
   end
 end
 # rubocop:enable Layout/LineLength

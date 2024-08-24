@@ -17,7 +17,7 @@ module DaisyUIViewComponents
 
       def call
         classes = ['steps']
-        classes << " #{RESPONSIVE_CLASSES[responsive]}" if responsive
+        classes << RESPONSIVE_CLASSES[responsive] if responsive
 
         html :ul, class: css(classes.join(' ')) do
           content
@@ -44,7 +44,7 @@ module DaisyUIViewComponents
 
         def call
           classes = ['step']
-          classes << " #{COLOR_CLASSES[color]}" if color
+          classes << COLOR_CLASSES[color] if color
 
           html :li, class: css(classes.join(' ')) do
             content

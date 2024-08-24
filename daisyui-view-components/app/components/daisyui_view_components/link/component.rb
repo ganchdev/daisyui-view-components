@@ -31,7 +31,7 @@ module DaisyUIViewComponents
 
       def css_classes
         classes = ['link']
-        classes << " #{COLOR_CLASSES[color]}" if color
+        classes << COLOR_CLASSES[color] if color
 
         css(classes.join(' '))
       end
