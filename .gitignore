@@ -1,6 +1,7 @@
 *.gem
 .ruby-version
 .idea
+.DS_Store
 
 daisyui-view-components/*.gem
 daisyui-view-components/Gemfile.lock
