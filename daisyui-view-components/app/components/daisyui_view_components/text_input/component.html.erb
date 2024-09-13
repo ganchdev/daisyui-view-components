@@ -1,0 +1,9 @@
+<% if before? || after? %>
+  <label class="<%= css("#{css_classes} flex items-center gap-2") %>">
+    <%= before if before? %>
+    <%= input %>
+    <%= after if after? %>
+  </label>
+<% else %>
+  <%= input %>
+<% end %>

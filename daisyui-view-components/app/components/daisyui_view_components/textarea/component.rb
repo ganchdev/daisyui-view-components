@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
 module DaisyUIViewComponents
-  module FileInput
+  module Textarea
     class Component < DaisyUIViewComponents::BaseComponent
 
       RESPONSIVE_CLASSES = {
-        xs: 'file-input-xs',
-        sm: 'file-input-sm',
-        md: 'file-input-md',
-        lg: 'file-input-lg'
+        xs: 'textarea-xs',
+        sm: 'textarea-sm',
+        md: 'textarea-md',
+        lg: 'textarea-lg'
       }.freeze
 
       COLOR_CLASSES = {
-        primary: 'file-input-primary',
-        secondary: 'file-input-secondary',
-        accent: 'file-input-accent',
-        info: 'file-input-info',
-        success: 'file-input-success',
-        warning: 'file-input-warning',
-        error: 'file-input-error'
+        primary: 'textarea-primary',
+        secondary: 'textarea-secondary',
+        accent: 'textarea-accent',
+        info: 'textarea-info',
+        success: 'textarea-success',
+        warning: 'textarea-warning',
+        error: 'textarea-error'
       }.freeze
 
       RESPONSIVE_OPTIONS = RESPONSIVE_CLASSES.keys.freeze
@@ -26,22 +26,26 @@ module DaisyUIViewComponents
       DEFAULT_COLOR = :primary
 
       option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
-      option :bordered, optional: true, default: false
-      option :ghost, optional: true, default: false
       option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
+      option :ghost, optional: true, default: false
+      option :bordered, optional: true, default: false
       option :form, optional: true
       option :field, optional: true, type: proc(&:to_s), default: proc { content&.to_sym }
 
       private
 
       def css_classes
-        classes = ['file-input']
+        classes = ['textarea']
+        classes << 'textarea-ghost' if ghost
+        classes << 'textarea-bordered' if bordered
         classes << RESPONSIVE_CLASSES[responsive] if responsive
         classes << COLOR_CLASSES[color] if color
-        classes << 'file-input-ghost' if ghost
-        classes << 'file-input-bordered' if bordered
 
         classes.join(' ')
+      end
+
+      def value
+        html_options[:value]
       end
 
     end

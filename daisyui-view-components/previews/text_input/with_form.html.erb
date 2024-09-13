@@ -1,0 +1,13 @@
+<%= form_with url: "#" do |f| %>
+  <label class="form-control w-full max-w-xs">
+    <div class="label">
+      <span class="label-text">What is your name?</span>
+      <span class="label-text-alt">Top Right label</span>
+    </div>
+    <%= component :text_input, :name, form: f, placeholder: "Type here", responsive: responsive, color: color, bordered: bordered, ghost: ghost %>
+    <div class="label">
+      <span class="label-text-alt">Bottom Left label</span>
+      <span class="label-text-alt">Bottom Right label</span>
+    </div>
+  </label>
+<% end %>

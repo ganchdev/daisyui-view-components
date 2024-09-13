@@ -1,3 +1,4 @@
 <%= form_with url: "#" do |f| %>
-  <%= component :radio, :field_name, label: "Form field", responsive: responsive, color: color, checked: checked, disabled: disabled, form: f %>
+  <%= component :radio, :pill, label: "Red pill", color: :error, class: "checked:bg-red-500", form: f %>
+  <%= component :radio, :pill, label: "Blue pill", class: "checked:bg-blue-500", form: f %>
 <% end %>

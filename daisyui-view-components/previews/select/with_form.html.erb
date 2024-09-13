@@ -1,0 +1,13 @@
+<%= form_with url: "#" do |f| %>
+  <label class="form-control w-full max-w-xs">
+    <div class="label">
+      <span class="label-text">Pick the best fantasy franchise</span>
+      <span class="label-text-alt">Alt label</span>
+    </div>
+    <%= component :select, :film, form: f, responsive: responsive, color: color, ghost: ghost, class: "w-full", choices: options_for_select(['Star Wars', 'Harry Potter', 'Lord of the Rings', 'Planet of the Apes', 'Star Trek']), include_blank: "Pick one…", disable_blank: true %>
+    <div class="label">
+      <span class="label-text-alt">Alt label</span>
+      <span class="label-text-alt">Alt label</span>
+    </div>
+  </label>
+<% end %>

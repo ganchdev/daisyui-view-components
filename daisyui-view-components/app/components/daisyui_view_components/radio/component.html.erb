@@ -1,16 +1,16 @@
 <% if label %>
   <% if form.present? %>
     <div class="form-control">
-      <%= label_tag field, class: "cursor-pointer label" do %>
+      <%= label_tag id_attribute, class: "cursor-pointer label" do %>
         <%= content_tag :span, label, class: "label-text" %>
-        <%= form.radio_button field, value, class: css(css_classes), **html_options.except(:class) %>
+        <%= form.radio_button field, value, id: id_attribute, class: css(css_classes), **html_options.except(:class) %>
       <% end %>
     </div>
   <% else %>
     <div class="form-control">
-      <%= label_tag field, class: "cursor-pointer label" do %>
+      <%= label_tag id, class: "cursor-pointer label" do %>
         <%= content_tag :span, label, class: "label-text" %>
-        <%= radio_button_tag field, value, class: css(css_classes), **html_options.except(:class) %>
+        <%= radio_button_tag field, value, id: id_attribute, class: css(css_classes), **html_options.except(:class) %>
       <% end %>
     </div>
   <% end %>

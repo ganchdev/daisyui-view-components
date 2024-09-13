@@ -28,6 +28,7 @@ module DaisyUIViewComponents
       option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
       option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
       option :form, optional: true
+      option :id, optional: true
       option :label, optional: true
       option :value, optional: true
       option :field, optional: true, type: proc(&:to_s), default: proc { content&.to_sym }
@@ -40,6 +41,18 @@ module DaisyUIViewComponents
         classes << COLOR_CLASSES[color] if color
 
         classes.join(' ')
+      end
+
+      def id_attribute
+        @id ||= begin
+          if label && value
+            "#{label.parameterize}-#{value}"
+          elsif label
+            "#{label.parameterize}-#{SecureRandom.hex(3)}"
+          else
+            SecureRandom.hex(3)
+          end
+        end
       end
 
     end

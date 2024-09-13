@@ -1,0 +1,26 @@
+<div class="space-y-4">
+  <%= component :text_input, :name, placeholder: "Daisy", responsive: responsive, color: color, bordered: bordered, ghost: ghost do |text_input| %>
+    <% text_input.with_before do %>
+      Name
+    <% end %>
+  <% end %>
+
+  <%= component :text_input, :email, placeholder: "daisy@site.com", responsive: responsive, color: color, bordered: bordered, ghost: ghost do |text_input| %>
+    <% text_input.with_before do %>
+      Email
+    <% end %>
+  <% end %>
+
+  <%= component :text_input, :search, placeholder: "Search", responsive: responsive, color: color, bordered: bordered, ghost: ghost do |text_input| %>
+    <% text_input.with_after do %>
+      <kbd class="kbd kbd-sm">⌘</kbd>
+      <kbd class="kbd kbd-sm">K</kbd>
+    <% end %>
+  <% end %>
+
+  <%= component :text_input, :search, placeholder: "Search", responsive: responsive, color: color, bordered: bordered, ghost: ghost do |text_input| %>
+    <% text_input.with_after do %>
+      <%= component :badge, "Optional", class: "badge-info" %>
+    <% end %>
+  <% end %>
+</div>

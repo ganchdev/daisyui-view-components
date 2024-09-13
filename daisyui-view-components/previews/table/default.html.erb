@@ -1,0 +1,60 @@
+<%= component :table, responsive: responsive, zebra: zebra do |table| %>
+  <% table.with_head do |head| %>
+    <% head.with_cell %>
+    <% head.with_cell data: { example: "cell" } do %>
+      Name
+    <% end %>
+    <% head.with_cell "Job" %>
+    <% head.with_cell "Favorite color" %>
+  <% end %>
+  <% table.with_body do |body| %>
+    <% body.with_row hover: true do |row| %>
+      <% row.with_cell "1" %>
+      <% row.with_cell do %>
+        Cy Ganderton
+      <% end %>
+      <% row.with_cell do %>
+        Quality Control Specialist 
+      <% end %>
+      <% row.with_cell do %>
+        Blue
+      <% end %>
+    <% end %>
+    <% body.with_row do |row| %>
+      <% row.with_cell "2" %>
+      <% row.with_cell do %>
+        Hart Hagerty 
+      <% end %>
+      <% row.with_cell do %>
+        Desktop Support Technician 
+      <% end %>
+      <% row.with_cell do %>
+        Purple
+      <% end %>
+    <% end %>
+    <% body.with_row do |row| %>
+      <% row.with_cell "3" %>
+      <% row.with_cell do %>
+        Brice Swyre
+      <% end %>
+      <% row.with_cell do %>
+        Tax Accountant 
+      <% end %>
+      <% row.with_cell do %>
+        Red
+      <% end %>
+    <% end %>
+    <% body.with_row do |row| %>
+      <% row.with_cell "4" %>
+      <% row.with_cell do %>
+        Yancy Tear	
+      <% end %>
+      <% row.with_cell do %>
+        Community Outreach Specialist 
+      <% end %>
+      <% row.with_cell do %>
+        Indigo
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

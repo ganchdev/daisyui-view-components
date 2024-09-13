@@ -1,10 +1,10 @@
 <%= form_with url: "#" do |f| %>
   <label class="form-control">
     <div class="label">
-      <span class="label-text">Pick a file</span>
+      <span class="label-text">Your bio</span>
       <span class="label-text-alt">Alt label</span>
     </div>
-    <%= component :file_input, :some_file, form: f, responsive: responsive, color: color, bordered: bordered, ghost: ghost %>
+    <%= component :textarea, :bio, form: f, responsive: responsive, color: color, bordered: bordered, ghost: ghost, value: "Something in there...", placeholder: 'Bio' %>
     <div class="label">
       <span class="label-text-alt">Your bio</span>
       <span class="label-text-alt">Alt label</span>
