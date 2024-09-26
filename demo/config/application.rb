@@ -46,6 +46,10 @@ module Demo
     config.generators.system_tests = nil
 
     config.lookbook.project_name = "DaisyUI View Components"
+    config.lookbook.preview_display_options = {
+      bg_color: '#fff',
+      theme: ["light", "dark"]
+    }
     config.view_component.default_preview_layout = "component"
     config.view_component.preview_controller = "PreviewController"
     config.view_component.preview_paths << Rails.root.join("../daisyui-view-components/previews")
