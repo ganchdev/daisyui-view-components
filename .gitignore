@@ -1,4 +1,5 @@
 *.gem
+*.patch
 .ruby-version
 .idea
 .DS_Store

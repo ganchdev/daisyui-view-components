@@ -4,7 +4,7 @@ module DaisyUIViewComponents
   module Radio
     class Component < DaisyUIViewComponents::BaseComponent
 
-      RESPONSIVE_CLASSES = {
+      SIZE_CLASSES = {
         xs: 'radio-xs',
         sm: 'radio-sm',
         md: 'radio-md',
@@ -21,11 +21,11 @@ module DaisyUIViewComponents
         error: 'radio-error'
       }.freeze
 
-      RESPONSIVE_OPTIONS = RESPONSIVE_CLASSES.keys.freeze
+      SIZE_OPTIONS = SIZE_CLASSES.keys.freeze
       COLOR_OPTIONS = COLOR_CLASSES.keys.freeze
       DEFAULT_COLOR = :primary
 
-      option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
+      option :size, optional: true, desc: SIZE_OPTIONS, type: proc(&:to_sym)
       option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
       option :form, optional: true
       option :id, optional: true
@@ -33,15 +33,12 @@ module DaisyUIViewComponents
       option :value, optional: true
       option :field, optional: true, type: proc(&:to_s), default: proc { content&.to_sym }
 
-      private
-
-      def css_classes
-        classes = ['radio']
-        classes << RESPONSIVE_CLASSES[responsive] if responsive
+      css_classes 'radio' do |classes|
+        classes << SIZE_CLASSES[size] if size
         classes << COLOR_CLASSES[color] if color
-
-        classes.join(' ')
       end
+
+      private
 
       def id_attribute
         @id ||= begin

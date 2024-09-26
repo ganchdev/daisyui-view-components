@@ -4,27 +4,19 @@ module Alert
   # @label Alert
   class Preview < ViewComponent::Preview
 
-
-    # Primary button
-    # ---------------
-    # This is the button style you should use for most things.
-    #
-    # @label Primary
-    # @param klass [String] text "use 'class' instead"
-    def default(klass: "")
-      render_with_template locals: { klass: klass }, template: 'alert/default'
+    # @param color [Symbol] select {{ DaisyUIViewComponents::Alert::Component::COLOR_OPTIONS.dup.push('nil') }}
+    def default(color: nil)
+      render_with_template locals: { color: color }, template: 'alert/default'
     end
 
-    def info_color
-      render_with_template template: 'alert/info_color'
+    # @param color [Symbol] select {{ DaisyUIViewComponents::Alert::Component::COLOR_OPTIONS.dup.push('nil') }}
+    def with_buttons(color: nil)
+      render_with_template locals: { color: color }, template: 'alert/with_buttons'
     end
 
-    def with_buttons
-      render_with_template template: 'alert/with_buttons'
-    end
-
-    def with_icon_title_and_description
-      render_with_template template: 'alert/with_icon_title_and_description'
+    # @param color [Symbol] select {{ DaisyUIViewComponents::Alert::Component::COLOR_OPTIONS.dup.push('nil') }}
+    def with_icon_title_and_description(color: nil)
+      render_with_template locals: { color: color }, template: 'alert/with_icon_title_and_description'
     end
 
   end

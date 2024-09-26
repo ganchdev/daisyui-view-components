@@ -4,14 +4,14 @@ module DaisyUIViewComponents
   module Checkbox
     class Component < DaisyUIViewComponents::BaseComponent
 
-      RESPONSIVE_CLASSES = {
+      SIZE_CLASSES = {
         xs: 'checkbox-xs',
         sm: 'checkbox-sm',
         md: 'checkbox-md',
         lg: 'checkbox-lg'
       }.freeze
 
-      RESPONSIVE_OPTIONS = RESPONSIVE_CLASSES.keys.freeze
+      SIZE_OPTIONS = SIZE_CLASSES.keys.freeze
 
       COLOR_CLASSES = {
         primary: 'checkbox-primary',
@@ -27,21 +27,13 @@ module DaisyUIViewComponents
 
       COLOR_OPTIONS = COLOR_CLASSES.keys.freeze
 
-      option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
+      option :size, optional: true, desc: SIZE_OPTIONS, type: proc(&:to_sym)
       option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
       option :form, optional: true
       option :label, optional: true
       option :field, optional: true, type: proc(&:to_s), default: proc { content&.to_sym }
 
-      private
-
-      def css_classes
-        classes = ['checkbox']
-        classes << RESPONSIVE_CLASSES[responsive] if responsive
-        classes << COLOR_CLASSES[color] if color
-
-        classes.join(' ')
-      end
+      css_classes 'checkbox', with: [:color, :size]
 
     end
   end

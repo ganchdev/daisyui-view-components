@@ -4,9 +4,9 @@ module Steps
   # @label Steps
   class Preview < ViewComponent::Preview
 
-    # @param responsive [Symbol] select {{ DaisyUIViewComponents::Steps::Component::RESPONSIVE_OPTIONS }}
-    def default(responsive: nil)
-      render_with_template locals: { responsive: responsive }, template: 'steps/default'
+    # @param direction [Symbol] select {{ DaisyUIViewComponents::Steps::Component::DIRECTION_OPTIONS }}
+    def default(direction: nil)
+      render_with_template locals: { direction: direction }, template: 'steps/default'
     end
 
   end

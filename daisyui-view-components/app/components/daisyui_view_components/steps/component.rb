@@ -4,22 +4,21 @@ module DaisyUIViewComponents
   module Steps
     class Component < DaisyUIViewComponents::BaseComponent
 
-      RESPONSIVE_CLASSES = {
+      DIRECTION_CLASSES = {
         vertical: 'steps-vertical',
         horizontal: 'steps-horizontal'
       }.freeze
 
-      RESPONSIVE_OPTIONS = RESPONSIVE_CLASSES.keys.freeze
+      DIRECTION_OPTIONS = DIRECTION_CLASSES.keys.freeze
 
-      option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
+      option :direction, optional: true, desc: DIRECTION_OPTIONS, type: proc(&:to_sym)
+
+      css_classes 'steps', with: :direction
 
       renders_many :steps, 'Step'
 
       def call
-        classes = ['steps']
-        classes << RESPONSIVE_CLASSES[responsive] if responsive
-
-        html :ul, class: css(classes.join(' ')) do
+        html :ul do
           content
         end
       end
@@ -42,11 +41,10 @@ module DaisyUIViewComponents
 
         option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
 
-        def call
-          classes = ['step']
-          classes << COLOR_CLASSES[color] if color
+        css_classes 'step', with: :color
 
-          html :li, class: css(classes.join(' ')) do
+        def call
+          html :li do
             content
           end
         end

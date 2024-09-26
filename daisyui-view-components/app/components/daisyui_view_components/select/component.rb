@@ -4,7 +4,7 @@ module DaisyUIViewComponents
   module Select
     class Component < DaisyUIViewComponents::BaseComponent
 
-      RESPONSIVE_CLASSES = {
+      SIZE_CLASSES = {
         xs: 'select-xs',
         sm: 'select-sm',
         md: 'select-md',
@@ -21,12 +21,13 @@ module DaisyUIViewComponents
         error: 'select-error'
       }.freeze
 
-      RESPONSIVE_OPTIONS = RESPONSIVE_CLASSES.keys.freeze
+      SIZE_OPTIONS = SIZE_CLASSES.keys.freeze
       COLOR_OPTIONS = COLOR_CLASSES.keys.freeze
       DEFAULT_COLOR = :primary
 
-      option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
+      option :size, optional: true, desc: SIZE_OPTIONS, type: proc(&:to_sym)
       option :ghost, optional: true, default: false
+      option :bordered, optional: true, default: false
       option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
       option :form, optional: true
       option :field, optional: true, type: proc(&:to_s), default: proc { content&.to_sym }
@@ -34,16 +35,14 @@ module DaisyUIViewComponents
       option :include_blank, optional: true
       option :disable_blank, default: proc { false }
 
-      private
-
-      def css_classes
-        classes = ['select']
-        classes << RESPONSIVE_CLASSES[responsive] if responsive
+      css_classes 'select' do |classes|
+        classes << SIZE_CLASSES[size] if size
         classes << COLOR_CLASSES[color] if color
         classes << 'select-ghost' if ghost
-
-        classes.join(' ')
+        classes << 'select-bordered' if bordered
       end
+
+      private
 
       def include_blank_options
         return {} unless @include_blank

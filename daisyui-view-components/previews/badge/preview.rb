@@ -4,8 +4,10 @@ module Badge
   # @label Badge
   class Preview < ViewComponent::Preview
 
-    def default
-      render_with_template template: 'badge/default'
+    # @param color [Symbol] select {{ DaisyUIViewComponents::Badge::Component::COLOR_OPTIONS }}
+    # @param size [Symbol] select {{ DaisyUIViewComponents::Badge::Component::SIZE_OPTIONS.dup.push('nil') }}
+    def default(color: nil, size: nil)
+      render_with_template locals: { color: color, size: size }, template: 'badge/default'
     end
 
   end

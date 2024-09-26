@@ -4,9 +4,9 @@ module Rating
   # @label Rating
   class Preview < ViewComponent::Preview
 
-    # @param responsive [Symbol] select {{ DaisyUIViewComponents::Rating::Component::RESPONSIVE_OPTIONS.dup.push('nil') }}
-    def default(responsive: nil)
-      render_with_template locals: { responsive: responsive }, template: 'rating/default'
+    # @param size [Symbol] select {{ DaisyUIViewComponents::Rating::Component::SIZE_OPTIONS.dup.push('nil') }}
+    def default(size: nil)
+      render_with_template locals: { size: size }, template: 'rating/default'
     end
 
   end

@@ -4,7 +4,7 @@ module DaisyUIViewComponents
   module TextInput
     class Component < DaisyUIViewComponents::BaseComponent
 
-      RESPONSIVE_CLASSES = {
+      SIZE_CLASSES = {
         xs: 'input-xs',
         sm: 'input-sm',
         md: 'input-md',
@@ -21,31 +21,28 @@ module DaisyUIViewComponents
         error: 'input-error'
       }.freeze
 
-      RESPONSIVE_OPTIONS = RESPONSIVE_CLASSES.keys.freeze
+      SIZE_OPTIONS = SIZE_CLASSES.keys.freeze
       COLOR_OPTIONS = COLOR_CLASSES.keys.freeze
       DEFAULT_COLOR = :primary
 
-      option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
+      option :size, optional: true, desc: SIZE_OPTIONS, type: proc(&:to_sym)
       option :bordered, optional: true, default: false
       option :ghost, optional: true, default: false
       option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
       option :form, optional: true
       option :field, optional: true, type: proc(&:to_s)
 
+      css_classes 'input' do |classes|
+        classes << SIZE_CLASSES[size] if size
+        classes << COLOR_CLASSES[color] if color
+        classes << 'input-ghost' if ghost
+        classes << 'input-bordered' if bordered
+      end
+
       renders_one :before
       renders_one :after
 
       private
-
-      def css_classes
-        classes = ['input']
-        classes << RESPONSIVE_CLASSES[responsive] if responsive
-        classes << COLOR_CLASSES[color] if color
-        classes << 'input-ghost' if ghost
-        classes << 'input-bordered' if bordered
-
-        classes.join(' ')
-      end
 
       def field
         @field ||= content

@@ -4,7 +4,7 @@ module DaisyUIViewComponents
   module FileInput
     class Component < DaisyUIViewComponents::BaseComponent
 
-      RESPONSIVE_CLASSES = {
+      SIZE_CLASSES = {
         xs: 'file-input-xs',
         sm: 'file-input-sm',
         md: 'file-input-md',
@@ -21,27 +21,22 @@ module DaisyUIViewComponents
         error: 'file-input-error'
       }.freeze
 
-      RESPONSIVE_OPTIONS = RESPONSIVE_CLASSES.keys.freeze
+      SIZE_OPTIONS = SIZE_CLASSES.keys.freeze
       COLOR_OPTIONS = COLOR_CLASSES.keys.freeze
       DEFAULT_COLOR = :primary
 
-      option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
+      option :size, optional: true, desc: SIZE_OPTIONS, type: proc(&:to_sym)
       option :bordered, optional: true, default: false
       option :ghost, optional: true, default: false
       option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
       option :form, optional: true
       option :field, optional: true, type: proc(&:to_s), default: proc { content&.to_sym }
 
-      private
-
-      def css_classes
-        classes = ['file-input']
-        classes << RESPONSIVE_CLASSES[responsive] if responsive
+      css_classes 'file-input' do |classes|
+        classes << SIZE_CLASSES[size] if size
         classes << COLOR_CLASSES[color] if color
         classes << 'file-input-ghost' if ghost
         classes << 'file-input-bordered' if bordered
-
-        classes.join(' ')
       end
 
     end

@@ -1,5 +1,5 @@
 <% if form.present?  %>
-  <%= form.text_area field, class: css(css_classes), **html_options.except(:class) %>
+  <%= form.text_area field, class: css_classes, **html_options.except(:class) %>
 <% else %>
-  <%= text_area_tag field, value, class: css(css_classes), **html_options.except(:class) %>
+  <%= text_area_tag field, value, class: css_classes, **html_options.except(:class) %>
 <% end %>

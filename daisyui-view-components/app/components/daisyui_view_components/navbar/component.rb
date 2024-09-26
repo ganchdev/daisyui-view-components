@@ -4,16 +4,16 @@ module DaisyUIViewComponents
   module Navbar
     class Component < DaisyUIViewComponents::BaseComponent
 
-      renders_one :start_element, lambda { |position: :start, **args|
-        Element.new(position: position, **args)
+      renders_one :start_element, lambda { |position: :start, **kwargs|
+        Element.new(position: position, **kwargs)
       }
 
-      renders_one :center_element, lambda { |position: :center, **args|
-        Element.new(position: position, **args)
+      renders_one :center_element, lambda { |position: :center, **kwargs|
+        Element.new(position: position, **kwargs)
       }
 
-      renders_one :end_element, lambda { |position: :end, **args|
-        Element.new(position: position, **args)
+      renders_one :end_element, lambda { |position: :end, **kwargs|
+        Element.new(position: position, **kwargs)
       }
 
       class Element < DaisyUIViewComponents::BaseComponent

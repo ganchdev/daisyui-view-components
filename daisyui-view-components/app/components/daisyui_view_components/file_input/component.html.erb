@@ -1,5 +1,5 @@
 <% if form.present? %>
-  <%= form.file_field field, class: css(css_classes), **html_options.except(:class) %>
+  <%= form.file_field field, class: css_classes, **html_options.except(:class) %>
 <% else %>
-  <%= file_field_tag field, **html_options, class: css(css_classes), **html_options.except(:class) %>
+  <%= file_field_tag field, **html_options, class: css_classes, **html_options.except(:class) %>
 <% end %>

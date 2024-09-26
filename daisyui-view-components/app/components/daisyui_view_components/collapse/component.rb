@@ -12,6 +12,11 @@ module DaisyUIViewComponents
       renders_one :checkbox, 'CollapseCheckbox'
       renders_one :radio, 'CollapseRadio'
 
+      css_classes 'collapse bg-base-200' do |classes|
+        classes << 'collapse-open' if @open
+        classes << 'collapse-arrow' if @arrow
+      end
+
       class CollapseRadio < DaisyUIViewComponents::BaseComponent
 
         def call
@@ -50,15 +55,6 @@ module DaisyUIViewComponents
           end
         end
 
-      end
-
-      private
-
-      def collapse_classes
-        classes = %w[collapse bg-base-200]
-        classes << 'collapse-open' if @open
-        classes << 'collapse-arrow' if @arrow
-        classes.join(' ')
       end
 
     end

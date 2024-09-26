@@ -4,17 +4,22 @@ module DaisyUIViewComponents
   module Table
     class Component < DaisyUIViewComponents::BaseComponent
 
-      RESPONSIVE_CLASSES = {
+      SIZE_CLASSES = {
         xs: 'table-xs',
         sm: 'table-sm',
         md: 'table-md',
         lg: 'table-lg'
       }.freeze
 
-      RESPONSIVE_OPTIONS = RESPONSIVE_CLASSES.keys.freeze
+      SIZE_OPTIONS = SIZE_CLASSES.keys.freeze
 
       option :zebra, optional: true
-      option :responsive, optional: true, desc: RESPONSIVE_OPTIONS, type: proc(&:to_sym)
+      option :size, optional: true, desc: SIZE_OPTIONS, type: proc(&:to_sym)
+
+      css_classes 'table' do |classes|
+        classes << 'table-zebra' if zebra
+        classes << SIZE_CLASSES[size] if size
+      end
 
       renders_one :head, 'Head'
       renders_one :body, 'Body'
@@ -71,30 +76,15 @@ module DaisyUIViewComponents
           }
 
           def call
-            html :tr, class: css(css_classes) do
+            html :tr, class: css(hover ? 'hover' : '') do
               cells.each do |cell|
                 concat cell
               end
             end
           end
 
-          private
-
-          def css_classes
-            hover ? 'hover' : ''
-          end
-
         end
 
-      end
-
-      private
-
-      def css_classes
-        classes = ['table']
-        classes << 'table-zebra' if zebra
-        classes << RESPONSIVE_CLASSES[responsive] if responsive
-        classes.join(' ')
       end
 
     end

@@ -23,17 +23,10 @@ module DaisyUIViewComponents
       option :color, optional: true, desc: COLOR_CLASSES, type: proc(&:to_sym)
       option :url, type: proc(&:to_s)
 
+      css_classes 'link', with: :color
+
       def call
         link_to content, @url, class: css_classes, **html_options
-      end
-
-      private
-
-      def css_classes
-        classes = ['link']
-        classes << COLOR_CLASSES[color] if color
-
-        css(classes.join(' '))
       end
 
     end

@@ -1,5 +1,5 @@
 <% if form.present? %>
-  <%= form.select field, choices, include_blank_options, class: css(css_classes), **html_options.except(:class) %>
+  <%= form.select field, choices, include_blank_options, class: css_classes, **html_options.except(:class) %>
 <% else %>
-  <%= select_tag field, prepare_choices, class: css(css_classes), **include_blank_options, **html_options.except(:class) %>
+  <%= select_tag field, prepare_choices, class: css_classes, **include_blank_options, **html_options.except(:class) %>
 <% end %>

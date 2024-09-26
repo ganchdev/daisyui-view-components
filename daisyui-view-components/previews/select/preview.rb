@@ -5,18 +5,20 @@ module Select
   # @label Select
   class Preview < ViewComponent::Preview
 
-    # @param responsive [Symbol] select {{ DaisyUIViewComponents::Select::Component::RESPONSIVE_OPTIONS.dup.push('nil') }}
+    # @param size [Symbol] select {{ DaisyUIViewComponents::Select::Component::SIZE_OPTIONS.dup.push('nil') }}
     # @param color [Symbol] select {{ DaisyUIViewComponents::Select::Component::COLOR_OPTIONS.dup.push('nil') }}
-    # @param ghost [Boolean] select [true, false] "Adds ghost style to input"
-    def default(responsive: nil, color: nil, ghost: false)
-      render_with_template locals: { responsive: responsive, color: color, ghost: ghost }, template: 'select/default'
+    # @param ghost [Boolean] select [true, false] "Adds ghost style to select"
+    # @param bordered [Boolean] select [true, false] "Adds border to select"
+    def default(size: nil, color: nil, ghost: false, bordered: false)
+      render_with_template locals: { size: size, color: color, ghost: ghost, bordered: bordered }, template: 'select/default'
     end
 
-    # @param responsive [Symbol] select {{ DaisyUIViewComponents::Select::Component::RESPONSIVE_OPTIONS.dup.push('nil') }}
+    # @param size [Symbol] select {{ DaisyUIViewComponents::Select::Component::SIZE_OPTIONS.dup.push('nil') }}
     # @param color [Symbol] select {{ DaisyUIViewComponents::Select::Component::COLOR_OPTIONS.dup.push('nil') }}
-    # @param ghost [Boolean] select [true, false] "Adds ghost style to input"
-    def with_form(responsive: nil, color: nil, ghost: false)
-      render_with_template locals: { responsive: responsive, color: color, ghost: ghost }, template: 'select/with_form'
+    # @param ghost [Boolean] select [true, false] "Adds ghost style to select"
+    # @param bordered [Boolean] select [true, false] "Adds border to select"
+    def with_form(size: nil, color: nil, ghost: false, bordered: false)
+      render_with_template locals: { size: size, color: color, ghost: ghost, bordered: bordered }, template: 'select/with_form'
     end
 
   end

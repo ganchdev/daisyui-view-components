@@ -6,11 +6,20 @@ module DaisyUIViewComponents
 
       POSITIONS = [:end, :top, :bottom, :right, :left].freeze
 
-      option :position, optional: true, type: proc(&:to_sym)
+      option :position, optional: true, desc: POSITIONS, type: proc(&:to_sym)
+
+      css_classes 'dropdown' do |classes|
+        classes << "dropdown-#{@position}" if @position
+      end
 
       renders_one :trigger, 'Trigger'
-      renders_one :menu, lambda { |css: 'dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-56'|
-        DaisyUIViewComponents::Menu::Component.new(class: css)
+      renders_one :menu, lambda { |*args, **kwargs, &block|
+        DaisyUIViewComponents::Menu::Component.new(
+          *args,
+          class: 'dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-56',
+          **kwargs,
+          &block
+        )
       }
 
       class Trigger < DaisyUIViewComponents::BaseComponent
@@ -21,13 +30,6 @@ module DaisyUIViewComponents
           end
         end
 
-      end
-
-      def css_classes
-        classes = %w[dropdown]
-        classes << "dropdown-#{@position}" if @position
-
-        classes.join(' ')
       end
 
     end

@@ -7,15 +7,11 @@ module DaisyUIViewComponents
       option :open, default: proc { false }
       option :backdrop, default: proc { true }
 
-      renders_one :modal_box, DaisyUIViewComponents::Modal::Box::Component
-
-      private
-
-      def css_classes
-        classes = %w[modal]
+      css_classes 'modal' do |classes|
         classes << 'modal-open' if @open
-        classes.join(' ')
       end
+
+      renders_one :modal_box, DaisyUIViewComponents::Modal::Box::Component
 
     end
   end

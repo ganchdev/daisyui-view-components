@@ -1,5 +1,5 @@
 <div class="space-y-4">
-	<%= component :text_input, :search, placeholder: "Search", responsive: responsive, color: color, bordered: bordered, ghost: ghost do |text_input| %>
+	<%= component :text_input, :search, placeholder: "Search", size: size, color: color, bordered: bordered, ghost: ghost do |text_input| %>
 	  <% text_input.with_after do %>
 	    <svg
 	      xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@
 	  <% end %> 
 	<% end %>
 
-	<%= component :text_input, :email, placeholder: "Email", responsive: responsive, color: color, bordered: bordered, ghost: ghost do |text_input| %>
+	<%= component :text_input, :email, placeholder: "Email", size: size, color: color, bordered: bordered, ghost: ghost do |text_input| %>
 	  <% text_input.with_before do %>
 	    <svg
 	      xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@
 	  <% end %> 
 	<% end %>
 
-	<%= component :text_input, :username, placeholder: "Username", responsive: responsive, color: color, bordered: bordered, ghost: ghost do |text_input| %>
+	<%= component :text_input, :username, placeholder: "Username", size: size, color: color, bordered: bordered, ghost: ghost do |text_input| %>
 	  <% text_input.with_before do %>
 		  <svg
 		    xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@
 	  <% end %> 
 	<% end %>
 
-	<%= component :text_input, :password, placeholder: "Password", type: "password", responsive: responsive, color: color, bordered: bordered, ghost: ghost do |text_input| %>
+	<%= component :text_input, :password, placeholder: "Password", type: "password", size: size, color: color, bordered: bordered, ghost: ghost do |text_input| %>
 	  <% text_input.with_before do %>
 		  <svg
 		    xmlns="http://www.w3.org/2000/svg"
