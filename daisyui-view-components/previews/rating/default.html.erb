@@ -1,1 +1,6 @@
-<%= component :rating, size: size %>
+<%= component :rating, size: size, mask_shape: mask_shape do |rating| %>
+  <%= rating.with_input name: 'rating-1' %>
+  <%= rating.with_input name: 'rating-1' %>
+  <%= rating.with_input name: 'rating-1' %>
+  <%= rating.with_input name: 'rating-1' %>
+<% end %>
