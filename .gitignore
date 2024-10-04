@@ -3,6 +3,7 @@
 .ruby-version
 .idea
 .DS_Store
+*.sublime*
 
 daisyui-view-components/*.gem
 daisyui-view-components/Gemfile.lock
