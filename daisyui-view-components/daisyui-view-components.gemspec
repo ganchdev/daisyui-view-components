@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description   = 'A view component library for Daisy UI'
   s.summary       = s.description
   s.required_ruby_version = '>= 2.7'
-  s.homepage      = 'https://github.com/naft-a/daisyui-view-components'
+  s.homepage      = 'https://github.com/ganchdev/daisyui-view-components'
   s.version       = DaisyUIViewComponents::VERSION
   s.files = Dir[
     'CHANGELOG.md',
@@ -20,12 +20,11 @@ Gem::Specification.new do |s|
   ]
   s.require_paths = ['lib']
   s.authors       = ['Georgi Ganchev']
-  s.email         = ['ganchev.georgi@yahoo.com']
   s.licenses      = ['MIT']
-  s.add_runtime_dependency 'actionview', '>= 5.0'
-  s.add_runtime_dependency 'activesupport', '>= 5.0'
-  s.add_runtime_dependency 'dry-initializer', '~> 3.1'
-  s.add_runtime_dependency 'tailwind_merge', '>= 0.8.1'
-  s.add_runtime_dependency 'view_component', '>= 3.0'
+  s.add_dependency 'actionview', '>= 5.0'
+  s.add_dependency 'activesupport', '>= 5.0'
+  s.add_dependency 'dry-initializer', '~> 3.1'
+  s.add_dependency 'tailwind_merge', '>= 0.8.1'
+  s.add_dependency 'view_component', '>= 3.0'
 end
 # rubocop:enable Gemspec/RequireMFA
