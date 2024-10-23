@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/ganchdev/daisyui-view-components/compare/v0.0.2...v0.0.3) (2024-10-23)
+
+
+### Bug Fixes
+
+* paths in gemspec ([58c3181](https://github.com/ganchdev/daisyui-view-components/commit/58c3181e75140b40d839a1346cf671087dc17498))
+
 ## [0.0.2](https://github.com/ganchdev/daisyui-view-components/compare/v0.0.1...v0.0.2) (2024-10-13)
 
 
