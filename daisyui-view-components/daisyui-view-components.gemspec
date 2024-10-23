@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'lib/daisyui_view_components/version'
+lib = File.expand_path('lib', __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'daisyui_view_components/version'
 
 # rubocop:disable Gemspec/RequireMFA
 Gem::Specification.new do |s|
@@ -13,12 +16,12 @@ Gem::Specification.new do |s|
   s.files = Dir[
     'CHANGELOG.md',
     'LICENSE.txt',
-    'README.md',
-    'app/**/*',
-    'lib/**/*',
-    'previews/**/*',
+    'daisyui-view-components/README.md',
+    'daisyui-view-components/app/**/*',
+    'daisyui-view-components/lib/**/*',
+    'daisyui-view-components/previews/**/*',
   ]
-  s.require_paths = ['lib']
+  s.require_paths = ['daisyui-view-components/lib']
   s.authors       = ['Georgi Ganchev']
   s.licenses      = ['MIT']
   s.add_dependency 'actionview', '>= 5.0'
